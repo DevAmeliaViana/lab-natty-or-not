@@ -9,12 +9,19 @@ ________________________________________
 Será construído, implantado e operado o agente usando a plataforma Amazon Bedrock AgentCore, aproveitando seus principais componentes:
 
 •	Plataforma Agêntica: Amazon Bedrock AgentCore
+
 o	Runtime: Responsável por executar o código do agente ou das ferramentas personalizadas.
+
 o	Memory (Memória): Utilizam-se estratégias de Memória de Curto Prazo (STM) e Memória de Longo Prazo (LTM) do AgentCore para garantir que o agente mantenha o contexto e o histórico de projetos através de sessões.
+
 o	Tools (Ferramentas): Habilitam o agente a usar APIs de monitoramento (como CloudWatch), execução segura de comandos e processamento de logs, ferramentas personalizadas essenciais para as tarefas de DevOps.
+
 o	Observability (Observabilidade): Utiliza-se a integração com o Amazon CloudWatch para monitorar e depurar o agente, acompanhando latência, erros e rastreando o passo a passo do seu raciocínio.
+
 •	Modelos Fundacionais (LLMs) - Amazon Nova:
+
 o	Modelos de Compreensão: Utilizados para o raciocínio, planejamento e execução de tarefas do agente (modelos da família Nova).
+
 o	Outros Modelos: Podem ser usados para tarefas específicas, como a família Nova Reel para geração de conteúdo informativo/relatórios a partir de análises.
 ________________________________________
 🧐 Processo de Criação e Implementação
@@ -23,19 +30,26 @@ As etapas para a construção do agente (seguindo o fluxo de trabalho demonstrad
 
 	Desenvolvimento do Agente:
 o	Cria-se o código do agente em Python, definindo a lógica central, a função de entry point e o SYSTEM_PROMPT (a instrução de comportamento como engenheiro de DevOps), além de listar as tools personalizadas (ex: log_analyzer, command_executor).
+
 	Configuração e Deploy:
 o	Utilizam-se comandos específicos da ferramenta de laboratório (como uv run agentcore configure) para configurar o agente (nome, Execution Role, ECR Repository).
+
 o	Em seguida, executa-se o comando de deploy (como uv run agentcore launch) para construir a imagem e fazer o deploy do agente no AgentCore Runtime, gerando o Agent ARN e Endpoint.
 	Testes e Invocação:
+	
 o	Realiza-se a invocação do agente usando o comando (ex: uv run agentcore invoke) com prompts desafiadores de DevOps para testar o raciocínio, o uso de ferramentas para análise/execução, e a manutenção da memória (contexto de sessão).
+
 	Monitoramento:
 o	Utilizam-se os Logs do CloudWatch e o GenAI Dashboard para monitorar o desempenho, latência e diagnosticar erros durante a execução, rastreando o passo a passo do raciocínio (o trace) do agente.
 ________________________________________
 🔗 Integração de Ferramentas no AgentCore
 
 O Bedrock AgentCore utiliza um framework agêntico para delegar tarefas a ferramentas específicas. Para o projeto de DevOps, as ferramentas são funções Python que se criam para encapsular funcionalidades específicas.
+
 Criação Conceitual do Agente
+
 No código do Agente (ex: devops_agent.py), define-se a ferramenta e o agente. O crucial é que a docstring da função (tool) descreva exatamente o que ela faz para que o modelo Amazon Nova saiba como e quando utilizá-la:
+
 Python
 # Exemplo de definição de uma ferramenta de log analysis
 from strands_tools import tool # Assumindo a biblioteca de labs
@@ -67,10 +81,14 @@ ________________________________________
 🚀 Resultados e Destaques
 
 O resultado do projeto é um agente autônomo, pronto para produção, focado em tarefas de DevOps:
+
 •	Destaque Funcional: O Agente terá a capacidade de analisar logs complexos e tomar decisões autônomas, como a execução de comandos corretivos ou o fornecimento de insights de root cause analysis complexos, simulando um especialista.
+
 •	Destaque da Plataforma: Gerenciamento de Estado e Contexto entre invocações com STM+LTM, permitindo sessões de depuração e monitoramento de múltiplas etapas, simulando um engenheiro humano com memória de projetos.
+
 •	Destaque de Escalabilidade: O Agente está pronto para ir de POC (Prova de Conceito) à Produção, pois o Bedrock AgentCore resolve os desafios de Desempenho, Escalabilidade, Segurança e Governança.
 ________________________________________
 💭 Reflexão:
+
 O uso do Amazon Bedrock AgentCore é crucial para simplificar a jornada de construção de agentes de produção. Fornece a estrutura necessária (Runtime, Memory, Identity, Observability), permitindo concentrar-se na lógica de DevOps e na performance do agente, e não no gerenciamento da infraestrutura complexa de LLM Ops. O resultado é um projeto muito mais "natty" (natural e robusto).
 
