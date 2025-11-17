@@ -8,7 +8,7 @@ ________________________________________
 
 Será construído, implantado e operado o agente usando a plataforma Amazon Bedrock AgentCore, aproveitando seus principais componentes:
 
-•	Plataforma Agêntica: Amazon Bedrock AgentCore
+o	Plataforma Agêntica: Amazon Bedrock AgentCore
 
 o	Runtime: Responsável por executar o código do agente ou das ferramentas personalizadas.
 
@@ -18,7 +18,7 @@ o	Tools (Ferramentas): Habilitam o agente a usar APIs de monitoramento (como Clo
 
 o	Observability (Observabilidade): Utiliza-se a integração com o Amazon CloudWatch para monitorar e depurar o agente, acompanhando latência, erros e rastreando o passo a passo do seu raciocínio.
 
-•	Modelos Fundacionais (LLMs) - Amazon Nova:
+o	Modelos Fundacionais (LLMs) - Amazon Nova:
 
 o	Modelos de Compreensão: Utilizados para o raciocínio, planejamento e execução de tarefas do agente (modelos da família Nova).
 
@@ -35,9 +35,9 @@ o	Cria-se o código do agente em Python, definindo a lógica central, a função
 o	Utilizam-se comandos específicos da ferramenta de laboratório (como uv run agentcore configure) para configurar o agente (nome, Execution Role, ECR Repository).
 
 o	Em seguida, executa-se o comando de deploy (como uv run agentcore launch) para construir a imagem e fazer o deploy do agente no AgentCore Runtime, gerando o Agent ARN e Endpoint.
-	Testes e Invocação:
 	
-o	Realiza-se a invocação do agente usando o comando (ex: uv run agentcore invoke) com prompts desafiadores de DevOps para testar o raciocínio, o uso de ferramentas para análise/execução, e a manutenção da memória (contexto de sessão).
+	Testes e Invocação:
+	o	Realiza-se a invocação do agente usando o comando (ex: uv run agentcore invoke) com prompts desafiadores de DevOps para testar o raciocínio, o uso de ferramentas para análise/execução, e a manutenção da memória (contexto de sessão).
 
 	Monitoramento:
 o	Utilizam-se os Logs do CloudWatch e o GenAI Dashboard para monitorar o desempenho, latência e diagnosticar erros durante a execução, rastreando o passo a passo do raciocínio (o trace) do agente.
