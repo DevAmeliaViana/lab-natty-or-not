@@ -1,4 +1,5 @@
 🤖 Agente Autônomo de DevOps com Amazon Bedrock AgentCore
+
 📝 Descrição do Projeto
 Este projeto faz parte do desafio "Natural ou Falso Natty? Como Vencer na Era das IAs Generativas" da Nexa. O objetivo é criar um Agente de IA autônomo e vou utilizar o Amazon Bedrock AgentCore para o domínio de DevOps, capaz de raciocinar, planejar e completar tarefas complexas (como monitoramento, execução de comandos e análise de logs) com uma performance e coerência tão alta que se assemelhe a um engenheiro de DevOps.
 O desafio é fazer com que o agente seja "natty" (natural/realista), atuando de forma autônoma e competente, utilizando as capacidades de Bedrock AgentCore para gerenciar a complexidade de execução e produção.
