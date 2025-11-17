@@ -5,6 +5,7 @@ Este projeto faz parte do desafio "Natural ou Falso Natty? Como Vencer na Era da
 O desafio é fazer com que o agente seja "natty" (natural/realista), atuando de forma autônoma e competente, utilizando as capacidades de Bedrock AgentCore para gerenciar a complexidade de execução e produção.
 ________________________________________
 🛠️ Tecnologias e Componentes AWS
+
 Será construído, implantado e operado o agente usando a plataforma Amazon Bedrock AgentCore, aproveitando seus principais componentes:
 
 •	Plataforma Agêntica: Amazon Bedrock AgentCore
